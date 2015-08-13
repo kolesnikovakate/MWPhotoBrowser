@@ -347,7 +347,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self setNavBarAppearance:animated];
     
     // Update UI
-	[self hideControlsAfterDelay];
+	//[self hideControlsAfterDelay];
     
     // Initial appearance
     if (!_viewHasAppearedInitially) {
@@ -564,7 +564,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	_currentPageIndex = _pageIndexBeforeRotation;
 	
 	// Delay control holding
-	[self hideControlsAfterDelay];
+	//[self hideControlsAfterDelay];
     
     // Layout
     [self layoutVisiblePages];
@@ -1084,7 +1084,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         if ([_delegate respondsToSelector:@selector(photoBrowser:titleForPhotoAtIndex:)]) {
             self.title = [_delegate photoBrowser:self titleForPhotoAtIndex:_currentPageIndex];
         } else {
-            self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"of", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
+            self.title = [NSString stringWithFormat:@"%lu %@ %lu", (unsigned long)(_currentPageIndex+1), NSLocalizedString(@"из", @"Used in the context: 'Showing 1 of 3 items'"), (unsigned long)numberOfPhotos];
         }
 	} else {
 		self.title = nil;
@@ -1116,7 +1116,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	}
 	
 	// Update timer to give more time
-	[self hideControlsAfterDelay];
+	//[self hideControlsAfterDelay];
 	
 }
 
@@ -1457,7 +1457,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Control hiding timer
 	// Will cancel existing timer but only begin hiding if
 	// they are visible
-	if (!permanent) [self hideControlsAfterDelay];
+	//if (!permanent) [self hideControlsAfterDelay];
 	
 }
 
@@ -1578,7 +1578,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             typeof(self) __weak weakSelf = self;
             [self.activityViewController setCompletionHandler:^(NSString *activityType, BOOL completed) {
                 weakSelf.activityViewController = nil;
-                [weakSelf hideControlsAfterDelay];
+                //[weakSelf hideControlsAfterDelay];
                 [weakSelf hideProgressHUD:YES];
             }];
             // iOS 8 - Set the Anchor Point for the popover

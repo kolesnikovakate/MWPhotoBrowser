@@ -364,7 +364,7 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-	[_photoBrowser hideControlsAfterDelay];
+	//[_photoBrowser hideControlsAfterDelay];
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
@@ -405,7 +405,7 @@
 	}
 	
 	// Delay controls
-	[_photoBrowser hideControlsAfterDelay];
+	//[_photoBrowser hideControlsAfterDelay];
 	
 }
 
