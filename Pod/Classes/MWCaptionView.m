@@ -40,7 +40,12 @@
         _paragraphStyle.maximumLineHeight = 20.0f;
         _paragraphStyle.minimumLineHeight = 20.0f;
         
-        _font = [UIFont fontWithName:@"GothamPro" size:17];
+        UIFont *font = [UIFont fontWithName:@"GothamPro" size:17];
+        if (font != nil) {
+            _font = font;
+        } else {
+            _font = [UIFont systemFontOfSize:17];
+        }
         
         [self setupCaption];
     }
