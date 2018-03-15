@@ -430,12 +430,23 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = [UIColor whiteColor];
-    navBar.barTintColor = nil;
-    navBar.shadowImage = nil;
+
+    UIImage *backgroundImage = [self imageFromColor:[[UIColor blackColor] colorWithAlphaComponent:0.3]];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsLandscapePhone];
+    navBar.shadowImage = [UIImage new];
     navBar.translucent = YES;
-    navBar.barStyle = UIBarStyleBlackTranslucent;
-    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
+}
+
+- (UIImage *)imageFromColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 - (void)storePreviousNavBarAppearance {
